@@ -18,6 +18,7 @@ fun Application.configureRouting() {
         level = Level.INFO
         filter { call ->
             call.request.path().startsWith("/africastalking")
+
         }
 
         format { call ->
