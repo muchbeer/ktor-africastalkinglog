@@ -33,6 +33,6 @@ dependencies {
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 
-    implementation("io.ktor:ktor-server-metrics:$ktor_version")
+
     implementation("com.github.AfricasTalkingLtd.africastalking-java:core:3.4.8")
 }

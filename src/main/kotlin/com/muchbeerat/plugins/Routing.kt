@@ -1,15 +1,11 @@
 package com.muchbeerat.plugins
 
-import com.codahale.metrics.Slf4jReporter
 import io.ktor.server.routing.*
-import io.ktor.http.*
 import io.ktor.server.application.*
-import io.ktor.server.metrics.dropwizard.*
 import io.ktor.server.plugins.callloging.*
 import io.ktor.server.response.*
 import io.ktor.server.request.*
 import org.slf4j.event.Level
-import java.util.concurrent.TimeUnit
 
 fun Application.configureRouting() {
 
@@ -17,14 +13,6 @@ fun Application.configureRouting() {
 
     log.info("AT application dependency started!")
 
-    install(DropwizardMetrics) {
-        Slf4jReporter.forRegistry(registry)
-            .outputTo(this@configureRouting.log)
-            .convertRatesTo(TimeUnit.SECONDS)
-            .convertDurationsTo(TimeUnit.MILLISECONDS)
-            .build()
-            .start(10, TimeUnit.SECONDS)
-    }
 
     install(CallLogging) {
         level = Level.INFO
